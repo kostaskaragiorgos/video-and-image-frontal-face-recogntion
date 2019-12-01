@@ -7,3 +7,10 @@
 </ul>
 
 
+## Keybinds
+
+<ul>
+ <li> Exit (Alt + F4) </li>
+ <li> About (Ctrl + I) </li>
+ <li> Help (Ctrl + F1) </li>
+ </ul>
