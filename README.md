@@ -1,5 +1,12 @@
 # video-and-image-frontal-face-recogntion
 
+## FILES 
+<ul>
+ <li> facerec.py(main file) </li>
+ <li> haarcascade_frontalface_default.xml (.xml file needed) </li>
+ <li> image-video-frontal-face-recognition keybinds.txt(.txt keybinds file) </li>
+</ul>
+
 ## Dependencies
 
  <ul>
