@@ -11,6 +11,7 @@
 
  <ul>
   <li> open cv (conda install -c conda-forge opencv) </li>
+  <li> second way to install open cv(pip install opencv-contrib-python-headless) </li>
 </ul>
 
 
