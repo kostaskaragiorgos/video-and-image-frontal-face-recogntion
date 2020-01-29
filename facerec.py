@@ -68,7 +68,7 @@ class FRONTAL_FACE_RECOGNTION():
                 cv2.imshow("Face",frame)
                 if cv2.waitKey(1) & 0xFF == ord("q"):
                     break
-            
+            msg.showinfo("FACES FOUND","FACES FOUND:"+str(len(faceRects)))
             camera.release()
             cv2.destroyAllWindows()
         else:
