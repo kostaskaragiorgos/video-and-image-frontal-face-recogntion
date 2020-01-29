@@ -37,36 +37,43 @@ class FRONTAL_FACE_RECOGNTION():
     def imgrec(self):
         imgfile = filedialog.askopenfilename(initialdir ="/",title ="Select an image file",
                                              filetypes =(("image files","*.jpg"),("all files","*.*")))
-        image = cv2.imread(imgfile)
-        gray = cv2.cvtColor(image , cv2.COLOR_BGR2GRAY)
-        faceRects = self.faceCascade.detectMultiScale(gray,scaleFactor = 1.2,minNeighbors = 6, minSize=(30,30))
-        for (x,y,w,h) in faceRects:
-            cv2.rectangle(image,(x,y),(x+w,y+h),(0,255,0),2)
-        cv2.imshow("Faces",image)
-        cv2.waitKey(0)
-        msg.showinfo("FACES FOUND","FACES FOUND:"+str(len(faceRects)))
+        if ".jpg" in imgfile:
+            image = cv2.imread(imgfile)
+            gray = cv2.cvtColor(image , cv2.COLOR_BGR2GRAY)
+            faceRects = self.faceCascade.detectMultiScale(gray,scaleFactor = 1.2,minNeighbors = 6, minSize=(30,30))
+            for (x,y,w,h) in faceRects:
+                cv2.rectangle(image,(x,y),(x+w,y+h),(0,255,0),2)
+            cv2.imshow("Faces",image)
+            cv2.waitKey(0)
+            msg.showinfo("FACES FOUND","FACES FOUND:"+str(len(faceRects)))
+        else:
+            msg.showerror("Abort" , "Abort")
 
         
     def vidrec(self):
         videofile = filedialog.askopenfilename(initialdir = "/",title = "Select a video file",
                                                filetypes = (("video files", "*.mp4"),("all files","*.*")))
         
-        camera =cv2.VideoCapture(videofile)
+        if ".mp4" in videofile:
+            camera =cv2.VideoCapture(videofile)
         
-        while True:
-            (check,frame) = camera.read()
-            frame = cv2.resize(frame ,(400,400),400,0)
-            gray  = cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
-            faceRects = self.faceCascade.detectMultiScale(gray,scaleFactor = 1.2,minNeighbors = 6, minSize=(30,30))
-            for (x,y,w,h) in faceRects:
-                cv2.rectangle(frame,(x,y), (x+w,y+h),(0,255,0),2)
+            while True:
+                (check,frame) = camera.read()
+                frame = cv2.resize(frame ,(400,400),400,0)
+                gray  = cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
+                faceRects = self.faceCascade.detectMultiScale(gray,scaleFactor = 1.2,minNeighbors = 6, minSize=(30,30))
+                for (x,y,w,h) in faceRects:
+                    cv2.rectangle(frame,(x,y), (x+w,y+h),(0,255,0),2)
             
-            cv2.imshow("Face",frame)
-            if cv2.waitKey(1) & 0xFF == ord("q"):
-                break
+                cv2.imshow("Face",frame)
+                if cv2.waitKey(1) & 0xFF == ord("q"):
+                    break
             
-        camera.release()
-        cv2.destroyAllWindows()
+            camera.release()
+            cv2.destroyAllWindows()
+        else:
+            msg.showerror("Abort" , "Abort")
+            
     def exitmenu(self):
         if msg.askokcancel("Quit?", "Really quit?"):
             self.master.destroy()
