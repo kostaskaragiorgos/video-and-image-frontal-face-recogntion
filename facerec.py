@@ -1,8 +1,15 @@
+"""
+frontal face recognition project
+"""
 from tkinter import Menu, Tk
 from tkinter import messagebox as msg
 from tkinter import filedialog
 import cv2
 class FRONTAL_FACE_RECOGNTION():
+    """
+    frontal face recognition class
+    """
+
     def __init__(self, master):
         self.master = master
         self.master.title("FRONTAL FACE RECOGNTION")
@@ -33,6 +40,7 @@ class FRONTAL_FACE_RECOGNTION():
         self.master.bind('<Control-i>', lambda event:self.aboutmenu())
         
     def imgrec(self):
+        """ image face recognition """
         imgfile = filedialog.askopenfilename(initialdir ="/",title ="Select an image file",
                                              filetypes =(("image files","*.jpg"),("all files","*.*")))
         if ".jpg" in imgfile:
@@ -47,6 +55,7 @@ class FRONTAL_FACE_RECOGNTION():
         else:
             msg.showerror("Abort", "Abort")
     def vidrec(self):
+        """ video face recognition """
         videofile = filedialog.askopenfilename(initialdir = "/", title = "Select a video file",
                                                filetypes = (("video files", "*.mp4"), ("all files", "*.*")))
         if ".mp4" in videofile:
@@ -69,13 +78,16 @@ class FRONTAL_FACE_RECOGNTION():
             msg.showerror("Abort", "Abort")
             
     def exitmenu(self):
+        """ exit menu"""
         if msg.askokcancel("Quit?", "Really quit?"):
             self.master.destroy()
     
     def helpmenu(self):
+        """ help menu """
         msg.showinfo("HELP", "HELP \n 1. Choose from the menu \n 2. Import a file")
     
     def aboutmenu(self):
+        """ about """
         msg.showinfo("About", "About \nVersion 1.0")
 def main():
     root=Tk()
