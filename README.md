@@ -1,5 +1,20 @@
 # video-and-image-frontal-face-recogntion
 
+
+# Table of contents
+
+<!--ts-->
+  * [video-and-image-frontal-face-recogntion](#video-and-image-frontal-face-recogntion)
+  * [Table of contents](#Table_of_contents)
+  * [FILES](#FILES)
+  * [Dependencies](#Dependencies)
+  * [Current Version](#Current_Version)
+  * [Radon](#Radon)
+  * [Keybinds](#Keybinds)
+  * [License](#License)
+<!--ts-->
+
+
 ## FILES 
 <ul>
  <li> facerec.py(main file) </li>
@@ -14,11 +29,11 @@
   <li> second way to install open cv(pip install opencv-contrib-python-headless) </li>
 </ul>
 
-**Current Version**
+## Current_Version
 
 <p><img src ="video and image frontal face rec.png" title = "Image-Video frontal face recognition Version"/> </p>
 
-**Radon**
+# Radon
 <p><img src = "video and image frontal face rec radon cc.png" title = "video and image frontal face recognition radon cc"/> </p>
 <p><img src = "video and image frontal face rec radon hal.png" title = "video and image frontal face recognition radon hal"/> </p>
 <p><img src = "video and image frontal face rec radon mi.png" title = "video and image frontal face recognition radon mi"/> </p>
