@@ -33,13 +33,13 @@
 
 ## Current_Version
 
-<p><img src ="video and image frontal face rec.png" title = "Image-Video frontal face recognition Version"/> </p>
+<p><img src ="images/video and image frontal face rec.png" title = "Image-Video frontal face recognition Version"/> </p>
 
 # Radon
-<p><img src = "video and image frontal face rec radon cc.png" title = "video and image frontal face recognition radon cc"/> </p>
-<p><img src = "video and image frontal face rec radon hal.png" title = "video and image frontal face recognition radon hal"/> </p>
-<p><img src = "video and image frontal face rec radon mi.png" title = "video and image frontal face recognition radon mi"/> </p>
-<p><img src = "video and image frontal face rec radon raw.png" title = "video and image frontal face recognition radon raw"/> </p>
+<p><img src = "images/video and image frontal face rec radon cc.png" title = "video and image frontal face recognition radon cc"/> </p>
+<p><img src = "images/video and image frontal face rec radon hal.png" title = "video and image frontal face recognition radon hal"/> </p>
+<p><img src = "images/video and image frontal face rec radon mi.png" title = "video and image frontal face recognition radon mi"/> </p>
+<p><img src = "images/video and image frontal face rec radon raw.png" title = "video and image frontal face recognition radon raw"/> </p>
 
 
 ## Keybinds
