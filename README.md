@@ -11,6 +11,10 @@
   * [Dependencies](#Dependencies)
   * [Current Version](#Current_Version)
   * [Radon](#Radon)
+    * [Radon_cc](#Radon_cc)
+    * [Radon_hal](#Radon_hal)
+    * [Radon_mi](#Radon_mi)
+    * [Radon_raw](#Radon_raw)
   * [Keybinds](#Keybinds)
   * [License](#License)
 <!--ts-->
@@ -26,7 +30,7 @@
 
 ## Dependencies
 
- <ul>
+<ul>
   <li> open cv (conda install -c conda-forge opencv) </li>
   <li> second way to install open cv(pip install opencv-contrib-python-headless) </li>
 </ul>
@@ -36,9 +40,21 @@
 <p><img src ="images/video and image frontal face rec.png" title = "Image-Video frontal face recognition Version"/> </p>
 
 # Radon
+
+## Radon_cc
+
 <p><img src = "images/video and image frontal face rec radon cc.png" title = "video and image frontal face recognition radon cc"/> </p>
+
+## Radon_hal
+
 <p><img src = "images/video and image frontal face rec radon hal.png" title = "video and image frontal face recognition radon hal"/> </p>
+
+## Radon_mi
+
 <p><img src = "images/video and image frontal face rec radon mi.png" title = "video and image frontal face recognition radon mi"/> </p>
+
+## Radon_raw
+
 <p><img src = "images/video and image frontal face rec radon raw.png" title = "video and image frontal face recognition radon raw"/> </p>
 
 
