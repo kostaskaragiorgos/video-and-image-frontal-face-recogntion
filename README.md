@@ -10,6 +10,7 @@
   * [Files](#Files)
   * [Dependencies](#Dependencies)
   * [Current Version](#Current_Version)
+  * [Documentation](#Documentation)
   * [Radon](#Radon)
     * [Radon_cc](#Radon_cc)
     * [Radon_hal](#Radon_hal)
@@ -39,6 +40,11 @@
 ## Current_Version
 
 <p><img src ="images/video and image frontal face rec.png" title = "Image-Video frontal face recognition Version"/> </p>
+
+## Documentation
+
+All project documentation is located in the `./doc`  folder.
+
 
 # Radon
 
