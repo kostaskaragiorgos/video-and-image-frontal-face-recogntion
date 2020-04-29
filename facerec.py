@@ -5,7 +5,6 @@ from tkinter import Menu, Tk
 from tkinter import messagebox as msg
 from tkinter import filedialog
 import cv2
-import imutils
 def helpmenu():
     """ help menu """
     msg.showinfo("HELP", "HELP \n 1. Choose from the menu \n 2. Import a file")
@@ -25,9 +24,9 @@ class FRONTAL_FACE_RECOGNTION():
         self.faceCascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
         self.menu = Menu(self.master)
         self.file_menu = Menu(self.menu, tearoff=0)
-        self.file_menu.add_command(label="IMAGE FACE RECOGNITION", command=self.imgrec)
-        self.file_menu.add_command(label="VIDEO FACE RECOGNITION", command=self.vidrec)
-        self.file_menu.add_command(label="Exit", accelerator= 'Alt+F4', command=self.exitmenu)
+        self.file_menu.add_command(label="IMAGE FACE RECOGNITION", accelerator='Ctrl+O', command=self.imgrec)
+        self.file_menu.add_command(label="VIDEO FACE RECOGNITION", accelerator='Alt+O', command=self.vidrec)
+        self.file_menu.add_command(label="Exit", accelerator='Alt+F4', command=self.exitmenu)
         self.menu.add_cascade(label="File", menu=self.file_menu)
         self.about_menu = Menu(self.menu, tearoff=0)
         self.about_menu.add_command(label="About", accelerator='Ctrl+I', command=aboutmenu)
@@ -36,6 +35,8 @@ class FRONTAL_FACE_RECOGNTION():
         self.help_menu.add_command(label="Help", accelerator='Ctrl+F1', command=helpmenu)
         self.menu.add_cascade(label="Help", menu=self.help_menu)
         self.master.config(menu=self.menu)
+        self.master.bind('<Control-o>', lambda event: self.imgrec())
+        self.master.bind('<Alt-o>', lambda event: self.vidrec())
         self.master.bind('<Alt-F4>', lambda event: self.exitmenu())
         self.master.bind('<Control-F1>', lambda event: helpmenu())
         self.master.bind('<Control-i>', lambda event: aboutmenu())
