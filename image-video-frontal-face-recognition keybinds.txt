@@ -1,7 +1,7 @@
 File menu
-======================
-IMAGE FACE RECOGNITION
-VIDEO FACE RECOGNITION
+===============================
+IMAGE FACE RECOGNITION Ctrl+ O
+VIDEO FACE RECOGNITION Alt + O
 Exit Alt + F4
 ======================
 About menu
