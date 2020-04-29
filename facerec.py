@@ -5,6 +5,7 @@ from tkinter import Menu, Tk
 from tkinter import messagebox as msg
 from tkinter import filedialog
 import cv2
+import imutils
 def helpmenu():
     """ help menu """
     msg.showinfo("HELP", "HELP \n 1. Choose from the menu \n 2. Import a file")
@@ -41,7 +42,7 @@ class FRONTAL_FACE_RECOGNTION():
         
     def imgrec(self):
         """ image face recognition """
-        imgfile = filedialog.askopenfilename(initialdir ="/", title="Select an image file",
+        imgfile = filedialog.askopenfilename(initialdir="/", title="Select an image file",
                                              filetypes=(("image files", "*.jpg"), ("all files", "*.*")))
         if ".jpg" in imgfile:
             image = cv2.imread(imgfile)
@@ -79,6 +80,7 @@ class FRONTAL_FACE_RECOGNTION():
         if msg.askokcancel("Quit?", "Really quit?"):
             self.master.destroy()
 def main():
+    """ main function """
     root = Tk()
     FRONTAL_FACE_RECOGNTION(root)
     root.mainloop()
