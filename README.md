@@ -24,7 +24,8 @@
 ## Files
 
 <ul>
- <li> images(images folder)
+ <li> doc (documentation folder) </li>
+ <li> images(images folder) </li>
  <li> facerec.py(main file) </li>
  <li> haarcascade_frontalface_default.xml (.xml file needed) </li>
  <li> image-video-frontal-face-recognition keybinds.txt(.txt keybinds file) </li>
@@ -68,6 +69,8 @@ All project documentation is located in the `./doc`  folder.
 ## Keybinds
 
 <ul>
+ <li> IMAGE FACE RECOGNITION (Ctrl+ O) </li>
+ <li> VIDEO FACE RECOGNITION (Alt + O) </li>
  <li> Exit (Alt + F4) </li>
  <li> About (Ctrl + I) </li>
  <li> Help (Ctrl + F1) </li>
