@@ -1,0 +1,5 @@
+Image:301 40 66  66
+Image:301 499 157  157
+Image:340 325 64  64
+Path:C:/Users/master/Downloads/94001498_1577001192457778_4621685148969074688_n.jpg
+Number of faces:3

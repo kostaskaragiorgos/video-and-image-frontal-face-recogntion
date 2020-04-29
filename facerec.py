@@ -5,6 +5,7 @@ from tkinter import Menu, Tk
 from tkinter import messagebox as msg
 from tkinter import filedialog
 import cv2
+import random
 def helpmenu():
     """ help menu """
     msg.showinfo("HELP", "HELP \n 1. Choose from the menu \n 2. Import a file")
@@ -49,11 +50,16 @@ class FRONTAL_FACE_RECOGNTION():
             image = cv2.imread(imgfile)
             gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
             faceRects = self.faceCascade.detectMultiScale(gray, scaleFactor=1.2, minNeighbors=6, minSize=(30, 30))
+            f = open("image"+str(random.randint(1,100))+".txt", "a")
             for (x, y, w, h) in faceRects:
                 cv2.rectangle(image, (x, y), (x+w, y+h), (0, 255, 0), 2)
+                f.write("Image:"+str(x)+" "+str(y)+" "+str(w )+" "+" "+str(h )+"\n")
             cv2.imshow("Faces", image)
             cv2.waitKey(0)
             msg.showinfo("FACES FOUND", "FACES FOUND:"+str(len(faceRects)))
+            f.write("Path:"+imgfile+"\n")
+            f.write("Number of faces:"+str(len(faceRects)))
+            f.close()
         else:
             msg.showerror("Abort", "Abort")
     def vidrec(self):
