@@ -53,12 +53,12 @@ class FRONTAL_FACE_RECOGNTION():
             f = open("image"+str(random.randint(1,100))+".txt", "a")
             for (x, y, w, h) in faceRects:
                 cv2.rectangle(image, (x, y), (x+w, y+h), (0, 255, 0), 2)
-                f.write("Image:"+str(x)+" "+str(y)+" "+str(w )+" "+" "+str(h )+"\n")
+                f.write("Image :"+str(x)+" "+str(y)+" "+str(w )+" "+" "+str(h )+"\n")
             cv2.imshow("Faces", image)
             cv2.waitKey(0)
-            msg.showinfo("FACES FOUND", "FACES FOUND:"+str(len(faceRects)))
-            f.write("Path:"+imgfile+"\n")
-            f.write("Number of faces:"+str(len(faceRects)))
+            msg.showinfo("FACES FOUND", "FACES FOUND: "+str(len(faceRects)))
+            f.write("Path: "+imgfile+"\n")
+            f.write("Number of faces: "+str(len(faceRects)))
             f.close()
         else:
             msg.showerror("Abort", "Abort")
@@ -76,13 +76,13 @@ class FRONTAL_FACE_RECOGNTION():
                 faceRects = self.faceCascade.detectMultiScale(gray, scaleFactor=1.2, minNeighbors=6, minSize=(30, 30))
                 for (x, y, w, h) in faceRects:
                     cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
-                    f.write("Video:"+str(x)+" "+str(y)+" "+str(w )+" "+" "+str(h )+"\n")
-                cv2.imshow("Face", frame)
+                    f.write("Video: "+str(x)+" "+str(y)+" "+str(w )+" "+" "+str(h )+"\n")
+                cv2.imshow("Face ", frame)
                 if cv2.waitKey(1) & 0xFF == ord("q"):
                     break
             camera.release()
             cv2.destroyAllWindows()
-            f.write("Path:"+videofile+"\n")
+            f.write("Path: "+videofile+"\n")
             f.close()
         else:
             msg.showerror("Abort", "Abort")
