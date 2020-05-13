@@ -62,28 +62,30 @@ class FRONTAL_FACE_RECOGNTION():
             f.close()
         else:
             msg.showerror("Abort", "Abort")
+    def videocapture(self, videofile, f):
+        camera = cv2.VideoCapture(videofile)
+        while True:
+            (check, frame) = camera.read()
+            frame = cv2.resize(frame, (400, 400), 400, 0)
+            gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+            faceRects = self.faceCascade.detectMultiScale(gray, scaleFactor=1.2, minNeighbors=6, minSize=(30, 30))
+            for (x, y, w, h) in faceRects:
+                cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
+                f.write("Video: "+str(x)+" "+str(y)+" "+str(w )+" "+" "+str(h )+"\n")
+            cv2.imshow("Face ", frame)
+            if cv2.waitKey(1) & 0xFF == ord("q"):
+                break
+        camera.release()
+        cv2.destroyAllWindows()
+        f.write("Path: "+videofile+"\n")
+        f.close()
     def vidrec(self):
         """ video face recognition """
         videofile = filedialog.askopenfilename(initialdir="/", title="Select a video file",
                                                filetypes=(("video files", "*.mp4"), ("all files", "*.*")))
         if ".mp4" in videofile:
             f = open("Video"+str(random.randint(1,100))+".txt", "a")
-            camera = cv2.VideoCapture(videofile)
-            while True:
-                (check, frame) = camera.read()
-                frame = cv2.resize(frame, (400, 400), 400, 0)
-                gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-                faceRects = self.faceCascade.detectMultiScale(gray, scaleFactor=1.2, minNeighbors=6, minSize=(30, 30))
-                for (x, y, w, h) in faceRects:
-                    cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
-                    f.write("Video: "+str(x)+" "+str(y)+" "+str(w )+" "+" "+str(h )+"\n")
-                cv2.imshow("Face ", frame)
-                if cv2.waitKey(1) & 0xFF == ord("q"):
-                    break
-            camera.release()
-            cv2.destroyAllWindows()
-            f.write("Path: "+videofile+"\n")
-            f.close()
+            self.videocapture(videofile, f)
         else:
             msg.showerror("Abort", "Abort")
     def exitmenu(self):
