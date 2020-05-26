@@ -4,15 +4,15 @@ frontal face recognition project
 from tkinter import Menu, Tk
 from tkinter import messagebox as msg
 from tkinter import filedialog
-import cv2
 import random
+import cv2
 def helpmenu():
     """ help menu """
     msg.showinfo("HELP", "HELP \n 1. Choose from the menu \n 2. Import a file")
 def aboutmenu():
     """ about """
     msg.showinfo("About", "About \nVersion 1.0")
-class FRONTAL_FACE_RECOGNTION():
+class FrontalFaceRecognition():
     """
     frontal face recognition class
     """
@@ -25,8 +25,10 @@ class FRONTAL_FACE_RECOGNTION():
         self.faceCascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
         self.menu = Menu(self.master)
         self.file_menu = Menu(self.menu, tearoff=0)
-        self.file_menu.add_command(label="IMAGE FACE RECOGNITION", accelerator='Ctrl+O', command=self.imgrec)
-        self.file_menu.add_command(label="VIDEO FACE RECOGNITION", accelerator='Alt+O', command=self.vidrec)
+        self.file_menu.add_command(label="IMAGE FACE RECOGNITION",
+                                   accelerator='Ctrl+O', command=self.imgrec)
+        self.file_menu.add_command(label="VIDEO FACE RECOGNITION",
+                                   accelerator='Alt+O', command=self.vidrec)
         self.file_menu.add_command(label="Exit", accelerator='Alt+F4', command=self.exitmenu)
         self.menu.add_cascade(label="File", menu=self.file_menu)
         self.about_menu = Menu(self.menu, tearoff=0)
@@ -45,15 +47,19 @@ class FRONTAL_FACE_RECOGNTION():
     def imgrec(self):
         """ image face recognition """
         imgfile = filedialog.askopenfilename(initialdir="/", title="Select an image file",
-                                             filetypes=(("image files", "*.jpg"), ("all files", "*.*")))
+                                             filetypes=(("image files", "*.jpg"),
+                                                        ("all files", "*.*")))
         if ".jpg" in imgfile:
             image = cv2.imread(imgfile)
             gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-            faceRects = self.faceCascade.detectMultiScale(gray, scaleFactor=1.2, minNeighbors=6, minSize=(30, 30))
-            f = open("image"+str(random.randint(1,100))+".txt", "a")
+            faceRects = self.faceCascade.detectMultiScale(gray,
+                                                          scaleFactor=1.2,
+                                                          minNeighbors=6,
+                                                          minSize=(30, 30))
+            f = open("image"+str(random.randint(1, 100))+".txt", "a")
             for (x, y, w, h) in faceRects:
                 cv2.rectangle(image, (x, y), (x+w, y+h), (0, 255, 0), 2)
-                f.write("Image :"+str(x)+" "+str(y)+" "+str(w )+" "+" "+str(h )+"\n")
+                f.write("Image :"+str(x)+" "+str(y)+" "+str(w)+" "+" "+str(h)+"\n")
             cv2.imshow("Faces", image)
             cv2.waitKey(0)
             msg.showinfo("FACES FOUND", "FACES FOUND: "+str(len(faceRects)))
@@ -63,15 +69,19 @@ class FRONTAL_FACE_RECOGNTION():
         else:
             msg.showerror("Abort", "Abort")
     def videocapture(self, videofile, f):
+        """ video face recognition """
         camera = cv2.VideoCapture(videofile)
         while True:
             (check, frame) = camera.read()
             frame = cv2.resize(frame, (400, 400), 400, 0)
             gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-            faceRects = self.faceCascade.detectMultiScale(gray, scaleFactor=1.2, minNeighbors=6, minSize=(30, 30))
+            faceRects = self.faceCascade.detectMultiScale(gray,
+                                                          scaleFactor=1.2,
+                                                          minNeighbors=6,
+                                                          minSize=(30, 30))
             for (x, y, w, h) in faceRects:
                 cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
-                f.write("Video: "+str(x)+" "+str(y)+" "+str(w )+" "+" "+str(h )+"\n")
+                f.write("Video: "+str(x)+" "+str(y)+" "+str(w)+" "+" "+str(h)+"\n")
             cv2.imshow("Face ", frame)
             if cv2.waitKey(1) & 0xFF == ord("q"):
                 break
@@ -82,9 +92,10 @@ class FRONTAL_FACE_RECOGNTION():
     def vidrec(self):
         """ video face recognition """
         videofile = filedialog.askopenfilename(initialdir="/", title="Select a video file",
-                                               filetypes=(("video files", "*.mp4"), ("all files", "*.*")))
+                                               filetypes=(("video files", "*.mp4"),
+                                                          ("all files", "*.*")))
         if ".mp4" in videofile:
-            f = open("Video"+str(random.randint(1,100))+".txt", "a")
+            f = open("Video"+str(random.randint(1, 100))+".txt", "a")
             self.videocapture(videofile, f)
         else:
             msg.showerror("Abort", "Abort")
@@ -95,7 +106,7 @@ class FRONTAL_FACE_RECOGNTION():
 def main():
     """ main function """
     root = Tk()
-    FRONTAL_FACE_RECOGNTION(root)
+    FrontalFaceRecognition(root)
     root.mainloop()
     
 if __name__ == '__main__':
