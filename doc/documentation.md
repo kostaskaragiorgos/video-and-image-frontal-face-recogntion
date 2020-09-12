@@ -33,3 +33,17 @@ An informative message pops up
 <p><img src ="doc images/File menu/close app pop up.png" title="close app pop up"/> </p>
 
 You press ok to close the app or cancel if you don't want
+
+
+# About menu
+
+## About
+
+You can show info about the app by using menu About --> About or using Ctrl+i keybind
+
+<p><img src="doc images/About menu/about menu.png" title="about menu"/></p>
+
+
+An informative message pops up
+
+<p><img src="doc images/About menu/about.png" title="about menu"/></p> 
