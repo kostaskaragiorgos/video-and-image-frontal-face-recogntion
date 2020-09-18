@@ -38,6 +38,10 @@
   <li> second way to install open cv(pip install opencv-contrib-python-headless) </li>
 </ul>
 
+```shell
+pip install -r requirements.txt
+```
+
 ## Current_Version
 
 <p><img src ="images/video and image frontal face rec.png" title = "Image-Video frontal face recognition Version"/> </p>
