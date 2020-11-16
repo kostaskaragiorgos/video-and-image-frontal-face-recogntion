@@ -1,11 +1,11 @@
-# video-and-image-frontal-face-recogntion
+# Video-and-image-frontal-face-recogntion
 
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)`[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 # Table of contents
 
 <!--ts-->
-  * [video-and-image-frontal-face-recogntion](#video-and-image-frontal-face-recogntion)
+  * [Video-and-image-frontal-face-recogntion](#video-and-image-frontal-face-recogntion)
   * [Table of contents](#Table_of_contents)
   * [Files](#Files)
   * [Dependencies](#Dependencies)
