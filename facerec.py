@@ -93,12 +93,7 @@ class FrontalFaceRecognition():
         else:
             msg.showerror("Abort", "Abort")
 
-    def videocapture(self, videofile, f=None, capturetype=-1):
-        """ video face recognition """
-        if  capturetype == 0:
-            camera = cv2.VideoCapture(0)
-        else:
-            camera = cv2.VideoCapture(videofile)
+    def cameracapture(self, camera, f):
         while True:
             (check, frame) = camera.read()
             frame = cv2.resize(frame, (400, 400), 400, 0)
@@ -115,6 +110,14 @@ class FrontalFaceRecognition():
                 break
         camera.release()
         cv2.destroyAllWindows()
+
+    def videocapture(self, videofile, f=None, capturetype=-1):
+        """ video face recognition """
+        if  capturetype == 0:
+            camera = cv2.VideoCapture(0)
+        else:
+            camera = cv2.VideoCapture(videofile)
+            self.cameracapture(camera, f)
         if capturetype == 0:
             current_time = datetime.now().strftime("%H:%M:%S")
             f.write("Camera capture:"+ current_time+"\n")
