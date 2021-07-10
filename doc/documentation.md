@@ -34,6 +34,13 @@ An informative message pops up
 
 You press ok to close the app or cancel if you don't want
 
+# Show menu
+
+## Show number of face
+
+You can show the number of faces by using menu Show --> Show number of faces or using Ctrl+F5 keybind
+
+<p><img src = "doc images/Show menu/show menu.png" title="Show number of faces"/></p>
 
 # About menu
 
