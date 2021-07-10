@@ -31,6 +31,8 @@ class FrontalFaceRecognition():
                                    accelerator='Ctrl+O', command=self.imgrec)
         self.file_menu.add_command(label="VIDEO FACE RECOGNITION",
                                    accelerator='Alt+O', command=self.vidrec)
+        self.file_menu.add_command(label="CAMERA FACE RECOGNITION",
+                                   command=self.webcamrecognition)
         self.file_menu.add_command(label="Exit", accelerator='Alt+F4', command=self.exitmenu)
         self.menu.add_cascade(label="File", menu=self.file_menu)
         self.show_menu = Menu(self.menu, tearoff=0)
@@ -55,6 +57,26 @@ class FrontalFaceRecognition():
             msg.showinfo("NUMBER OF FACES", "THERE ARE NO FACES")
         else:
             msg.showinfo("NUMBER OF FACES", "THERE ARE " + str(len(self.faceRects))+ " FACES")
+
+    
+    def webcamrecognition(self):
+        camera = cv2.VideoCapture(0)
+        while True:
+            (_, frame) = camera.read()
+            frame = cv2.resize(frame, (400, 400), 400, 0)
+            gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+            self.faceRects = self.faceCascade.detectMultiScale(gray,
+                                                          scaleFactor=1.2,
+                                                          minNeighbors=6,
+                                                          minSize=(30, 30))
+            for (x, y, w, h) in self.faceRects:
+                cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
+                #f.write("Video: "+str(x)+" "+str(y)+" "+str(w)+" "+" "+str(h)+"\n")
+            cv2.imshow("Face ", frame)
+            if cv2.waitKey(1) & 0xFF == ord("q"):
+                break
+        camera.release()
+        cv2.destroyAllWindows()
 
     def imgrec(self):
         """ image face recognition """
