@@ -22,7 +22,7 @@ class FrontalFaceRecognition():
         self.master.geometry("250x120")
         self.master.resizable(False, False)
 
-        self.faceRects = 0
+        self.faceRects = ""
 
         self.faceCascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
         self.menu = Menu(self.master)
@@ -34,7 +34,7 @@ class FrontalFaceRecognition():
         self.file_menu.add_command(label="Exit", accelerator='Alt+F4', command=self.exitmenu)
         self.menu.add_cascade(label="File", menu=self.file_menu)
         self.show_menu = Menu(self.menu, tearoff=0)
-        self.show_menu.add_command(label="Show Number of faces")
+        self.show_menu.add_command(label="Show Number of faces", command=self.shownumberoffaces)
         self.menu.add_cascade(label="Show", menu=self.show_menu)
         self.about_menu = Menu(self.menu, tearoff=0)
         self.about_menu.add_command(label="About", accelerator='Ctrl+I', command=aboutmenu)
@@ -50,7 +50,11 @@ class FrontalFaceRecognition():
         self.master.bind('<Control-F1>', lambda event: helpmenu())
         self.master.bind('<Control-i>', lambda event: aboutmenu())
 
-    
+    def shownumberoffaces(self):
+        if self.faceRects == "":
+            msg.showinfo("NUMBER OF FACES", "THERE ARE NO FACES")
+        else:
+            msg.showinfo("NUMBER OF FACES", "THERE ARE " + str(len(self.faceRects))+ " FACES")
 
     def imgrec(self):
         """ image face recognition """
