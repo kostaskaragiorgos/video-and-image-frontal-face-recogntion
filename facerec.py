@@ -32,7 +32,7 @@ class FrontalFaceRecognition():
         self.file_menu.add_command(label="VIDEO FACE RECOGNITION",
                                    accelerator='Alt+O', command=self.vidrec)
         self.file_menu.add_command(label="CAMERA FACE RECOGNITION",
-                                   command=self.webcamrecognition)
+                                   accelerator='Alt+R', command=self.webcamrecognition)
         self.file_menu.add_command(label="Exit", accelerator='Alt+F4', command=self.exitmenu)
         self.menu.add_cascade(label="File", menu=self.file_menu)
         self.show_menu = Menu(self.menu, tearoff=0)
