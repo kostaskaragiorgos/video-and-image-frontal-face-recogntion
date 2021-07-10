@@ -1,9 +1,14 @@
 File menu
 ===============================
-IMAGE FACE RECOGNITION Ctrl+ O
+IMAGE FACE RECOGNITION Ctrl + O
 VIDEO FACE RECOGNITION Alt + O
+CAMERA FACE RECOGNITION Alt + R
 Exit Alt + F4
-======================
+===============================
+SHOW MENU
+============================
+Show number of faces Ctrl+F5
+============================
 About menu
 ==============
 About Ctrl + I
