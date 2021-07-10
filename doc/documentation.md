@@ -2,6 +2,12 @@
 
 # File menu
 
+## CAMERA FACE RECOGNITION
+
+You can insert a image using menu File --> CAMERA FACE RECOGNITION or using ALT+R keybind
+
+<p><img src ="doc images/File menu/camera face recognition.png" title="camera face recognition"/> </p>
+
 ## IMAGE FACE RECOGNITION
 
 You can insert a image using menu File --> IMAGE FACE RECOGNITION or using Ctrl+O keybind
