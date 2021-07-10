@@ -89,6 +89,8 @@ class FrontalFaceRecognition():
             cv2.waitKey(0)
             msg.showinfo("FACES FOUND", "FACES FOUND: "+str(len(self.faceRects)))
             f.write("Path: "+imgfile+"\n")
+            current_time = datetime.now().strftime("%H:%M:%S")
+            f.write("Date:"+current_time+"\n")
             f.write("Number of faces: "+str(len(self.faceRects)))
             f.close()
         else:
