@@ -42,6 +42,10 @@ You can show the number of faces by using menu Show --> Show number of faces or 
 
 <p><img src = "doc images/Show menu/show menu.png" title="Show number of faces"/></p>
 
+if there are no faces a no faces imformative message pops up
+
+<p><img src = "doc images/Show menu/no faces found.png" title="No faces found"/></p>
+
 # About menu
 
 ## About
