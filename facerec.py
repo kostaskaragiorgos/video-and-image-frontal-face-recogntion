@@ -63,23 +63,9 @@ class FrontalFaceRecognition():
 
     
     def webcamrecognition(self):
-        camera = cv2.VideoCapture(0)
-        while True:
-            (_, frame) = camera.read()
-            frame = cv2.resize(frame, (400, 400), 400, 0)
-            gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-            self.faceRects = self.faceCascade.detectMultiScale(gray,
-                                                          scaleFactor=1.2,
-                                                          minNeighbors=6,
-                                                          minSize=(30, 30))
-            for (x, y, w, h) in self.faceRects:
-                cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
-                #f.write("Video: "+str(x)+" "+str(y)+" "+str(w)+" "+" "+str(h)+"\n")
-            cv2.imshow("Face ", frame)
-            if cv2.waitKey(1) & 0xFF == ord("q"):
-                break
-        camera.release()
-        cv2.destroyAllWindows()
+        f = open("Video"+str(random.randint(1, 100))+".txt", "a")
+        self.videocapture(self, f=f, capturetype=0)
+
 
     def imgrec(self):
         """ image face recognition """
@@ -106,9 +92,12 @@ class FrontalFaceRecognition():
         else:
             msg.showerror("Abort", "Abort")
 
-    def videocapture(self, videofile, f):
+    def videocapture(self, videofile, f=None, capturetype=-1):
         """ video face recognition """
-        camera = cv2.VideoCapture(videofile)
+        if  capturetype == 0:
+            camera = cv2.VideoCapture(0)
+        else:
+            camera = cv2.VideoCapture(videofile)
         while True:
             (check, frame) = camera.read()
             frame = cv2.resize(frame, (400, 400), 400, 0)
@@ -125,7 +114,10 @@ class FrontalFaceRecognition():
                 break
         camera.release()
         cv2.destroyAllWindows()
-        f.write("Path: "+videofile+"\n")
+        if capturetype == 0:
+            pass
+        else:
+            f.write("Path: "+videofile+"\n")
         f.close()
 
     def vidrec(self):
@@ -135,7 +127,7 @@ class FrontalFaceRecognition():
                                                           ("all files", "*.*")))
         if ".mp4" in videofile:
             f = open("Video"+str(random.randint(1, 100))+".txt", "a")
-            self.videocapture(videofile, f)
+            self.videocapture(videofile=videofile, f=f)
         else:
             msg.showerror("Abort", "Abort")
     def exitmenu(self):
