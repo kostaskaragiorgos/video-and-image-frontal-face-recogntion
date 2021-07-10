@@ -115,7 +115,7 @@ class FrontalFaceRecognition():
         camera.release()
         cv2.destroyAllWindows()
         if capturetype == 0:
-            pass
+            f.write("Camera capture\n")
         else:
             f.write("Path: "+videofile+"\n")
         f.close()
