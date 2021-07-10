@@ -64,6 +64,7 @@ class FrontalFaceRecognition():
 
     
     def webcamrecognition(self):
+        """ web cam face recognition"""
         f = open("Video"+str(random.randint(1, 100))+".txt", "a")
         self.videocapture(self, f=f, capturetype=0)
 
