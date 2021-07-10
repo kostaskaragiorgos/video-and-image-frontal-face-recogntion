@@ -46,6 +46,10 @@ if there are no faces a no faces imformative message pops up
 
 <p><img src = "doc images/Show menu/no faces found.png" title="No faces found"/></p>
 
+else an imformative message with the number of faces  pops up
+
+<p><img src = "doc images/Show menu/faces found.png" title="faces found"/></p>
+
 # About menu
 
 ## About
