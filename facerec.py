@@ -48,12 +48,14 @@ class FrontalFaceRecognition():
         self.master.config(menu=self.menu)
         self.master.bind('<Control-o>', lambda event: self.imgrec())
         self.master.bind('<Alt-o>', lambda event: self.vidrec())
+        self.master.bind('<Alt-r>', lambda event: self.webcamrecognition())
         self.master.bind('<Alt-F4>', lambda event: self.exitmenu())
         self.master.bind('<Control-F5>', lambda event: self.shownumberoffaces())
         self.master.bind('<Control-F1>', lambda event: helpmenu())
         self.master.bind('<Control-i>', lambda event: aboutmenu())
 
     def shownumberoffaces(self):
+        """shows the number of faces found"""
         if self.faceRects == "":
             msg.showinfo("NUMBER OF FACES", "THERE ARE NO FACES")
         else:
@@ -103,6 +105,7 @@ class FrontalFaceRecognition():
             f.close()
         else:
             msg.showerror("Abort", "Abort")
+
     def videocapture(self, videofile, f):
         """ video face recognition """
         camera = cv2.VideoCapture(videofile)
@@ -124,6 +127,7 @@ class FrontalFaceRecognition():
         cv2.destroyAllWindows()
         f.write("Path: "+videofile+"\n")
         f.close()
+
     def vidrec(self):
         """ video face recognition """
         videofile = filedialog.askopenfilename(initialdir="/", title="Select a video file",
