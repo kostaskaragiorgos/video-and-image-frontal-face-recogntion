@@ -1,6 +1,7 @@
 """
 frontal face recognition project
 """
+from datetime import datetime
 from tkinter import Menu, Tk
 from tkinter import messagebox as msg
 from tkinter import filedialog
@@ -115,7 +116,8 @@ class FrontalFaceRecognition():
         camera.release()
         cv2.destroyAllWindows()
         if capturetype == 0:
-            f.write("Camera capture\n")
+            current_time = datetime.now().strftime("%H:%M:%S")
+            f.write("Camera capture:", current_time)
         else:
             f.write("Path: "+videofile+"\n")
         f.close()
