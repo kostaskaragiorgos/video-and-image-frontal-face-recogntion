@@ -117,7 +117,7 @@ class FrontalFaceRecognition():
         cv2.destroyAllWindows()
         if capturetype == 0:
             current_time = datetime.now().strftime("%H:%M:%S")
-            f.write("Camera capture:", current_time)
+            f.write("Camera capture:"+ current_time+"\n")
         else:
             f.write("Path: "+videofile+"\n")
         f.close()
