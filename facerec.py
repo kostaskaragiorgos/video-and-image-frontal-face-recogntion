@@ -113,7 +113,12 @@ class FrontalFaceRecognition():
         cv2.destroyAllWindows()
 
     def videocapture(self, videofile, f=None, capturetype=-1):
-        """ video face recognition """
+        """ video face recognition.
+        Args:
+            videofile: Video file input
+            f: file name to save the infos
+            capturetype:number of the input web cam
+        """
         if  capturetype == 0:
             camera = cv2.VideoCapture(0)
         else:
