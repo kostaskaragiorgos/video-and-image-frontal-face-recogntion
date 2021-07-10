@@ -49,6 +49,7 @@ class FrontalFaceRecognition():
         self.master.bind('<Control-o>', lambda event: self.imgrec())
         self.master.bind('<Alt-o>', lambda event: self.vidrec())
         self.master.bind('<Alt-F4>', lambda event: self.exitmenu())
+        self.master.bind('<Control-F5>', lambda event: self.shownumberoffaces())
         self.master.bind('<Control-F1>', lambda event: helpmenu())
         self.master.bind('<Control-i>', lambda event: aboutmenu())
 
