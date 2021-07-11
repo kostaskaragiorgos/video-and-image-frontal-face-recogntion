@@ -37,7 +37,8 @@ class FrontalFaceRecognition():
         self.file_menu.add_command(label="Exit", accelerator='Alt+F4', command=self.exitmenu)
         self.menu.add_cascade(label="File", menu=self.file_menu)
         self.show_menu = Menu(self.menu, tearoff=0)
-        self.show_menu.add_command(label="Show Number of faces", accelerator='Ctrl+F5', command=self.shownumberoffaces)
+        self.show_menu.add_command(label="Show Number of faces",
+                                   accelerator='Ctrl+F5', command=self.shownumberoffaces)
         self.menu.add_cascade(label="Show", menu=self.show_menu)
         self.about_menu = Menu(self.menu, tearoff=0)
         self.about_menu.add_command(label="About", accelerator='Ctrl+I', command=aboutmenu)
@@ -78,9 +79,9 @@ class FrontalFaceRecognition():
             image = cv2.imread(imgfile)
             gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
             self.faceRects = self.faceCascade.detectMultiScale(gray,
-                                                          scaleFactor=1.2,
-                                                          minNeighbors=6,
-                                                          minSize=(30, 30))
+                                                               scaleFactor=1.2,
+                                                               minNeighbors=6,
+                                                               minSize=(30, 30))
             f = open("image"+str(random.randint(1, 100))+".txt", "a")
             for (x, y, w, h) in self.faceRects:
                 cv2.rectangle(image, (x, y), (x+w, y+h), (0, 255, 0), 2)
@@ -102,9 +103,9 @@ class FrontalFaceRecognition():
             frame = cv2.resize(frame, (400, 400), 400, 0)
             gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
             self.faceRects = self.faceCascade.detectMultiScale(gray,
-                                                          scaleFactor=1.2,
-                                                          minNeighbors=6,
-                                                          minSize=(30, 30))
+                                                               scaleFactor=1.2,
+                                                               minNeighbors=6,
+                                                               minSize=(30, 30))
             for (x, y, w, h) in self.faceRects:
                 cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
                 f.write("Video: "+str(x)+" "+str(y)+" "+str(w)+" "+" "+str(h)+"\n")
