@@ -123,7 +123,9 @@ class FrontalFaceRecognition():
             capturetype:number of the input web cam
         """
         if  capturetype == 0:
-            camera = cv2.VideoCapture(0)
+            camera = cv2.VideoCapture(0,cv2.CAP_DSHOW)
+            camera.set(cv2.CAP_PROP_FPS,30)
+            self.cameracapture(camera, f)
         else:
             camera = cv2.VideoCapture(videofile)
             self.cameracapture(camera, f)
