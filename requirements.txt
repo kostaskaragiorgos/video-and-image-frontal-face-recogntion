@@ -1,2 +1,2 @@
-numpy==1.18.5
+numpy==1.22.0
 opencv-contrib-python-headless==4.2.0.34
